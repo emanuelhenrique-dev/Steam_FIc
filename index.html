@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="scripts/DbGames.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+    <title>Steam - Pagina inicial</title>
+  </head>
+  <body>
+    <div class="api">
+      <div class="home-bg">
+        <div class="overlay bg"></div>
+        <video
+          class="video"
+          autoplay
+          loop
+          muted
+          src="/assets/video/God_of_war.mp4"
+        ></video>
+      </div>
+      <div class="main">
+        <nav>
+          <a class="logo" href="#HOME"
+            ><img src="assets/img/logo.svg" alt="Logo steam"
+          /></a>
+          <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <ul>
+            <li>
+              <div class="search-box">
+                <input
+                  class="search-text"
+                  type="text"
+                  name=""
+                  placeholder="Escreva o que procura"
+                />
+                <a href="#search-game"><i class="ph-magnifying-glass"></i></a>
+              </div>
+            </li>
+            <li><a href="#HOME">LOJA</a></li>
+            <li><a href="#COMUNITY">COMUNIDADE</a></li>
+            <li><a href="#ABOUT">SOBRE</a></li>
+            <li><a href="#SUPORT">SUPORTE</a></li>
+            <li>
+              <a href="#DOWNLOAD-STEAM"><i class="ph-download-simple"></i></a>
+            </li>
+            <li>
+              <a href="#LOGIN"><i class="ph-user"></i></a>
+            </li>
+          </ul>
+        </nav>
+        <section id="home">
+          <div class="game-showcase">
+            <div class="tags">
+              <p class="tag">Ação</p>
+              <p class="tag">Rpg</p>
+            </div>
+            <div class="extra">
+              <span class="stars">
+                <i class="ph-star-fill"></i>
+                <i class="ph-star-fill"></i>
+                <i class="ph-star-fill"></i>
+                <i class="ph-star-fill"></i>
+                <i class="ph-star-fill"></i>
+              </span>
+              <p>Santa Monica Studio</p>
+            </div>
+            <h2>God of War Ragnarök</h2>
+            <p class="description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              dictum convallis turpis, nec rutrum quam vulputate viverra. Proin
+              ornare dolor sit amet laoreet dignissim.
+            </p>
+            <button>Mais detalhes</button>
+            <div class="imageArt"></div>
+          </div>
+          <div class="highlights">
+            <h1>Destaques</h1>
+            <ul></ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
