@@ -606,7 +606,7 @@ p.tag {
 
 @media (max-width:600px) {
   nav ul {
-    padding-top: calc(3.3rem + var(--nav-height));
+    padding-top: calc(2.3rem + var(--nav-height));
     gap: 3rem;
     font-size: 1.8rem;
     justify-content: flex-start;
