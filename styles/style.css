@@ -579,7 +579,7 @@ p.tag {
   #home .highlights ul {
     padding-top: 3rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     overflow-x: auto;
   }
 
@@ -603,6 +603,20 @@ p.tag {
     line-height: 1.5rem;
   }
 }
+
+@media (max-width:600px) {
+  nav ul {
+    padding-top: calc(4.3rem + var(--nav-height));
+    gap: 3rem;
+    font-size: 1.8rem;
+    justify-content: flex-start;
+  }
+
+  nav ul li .search-text {
+    width: 22rem;
+  }
+}
+
 @media (hover:none) {
   #home .highlights ul::-webkit-scrollbar {
     height: 0.3rem;
