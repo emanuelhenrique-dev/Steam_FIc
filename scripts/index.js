@@ -47,6 +47,7 @@ HlGameList.addEventListener('click', (e) => {
     for (let i = 0; i < HlCards.length; i++) {
       if (HlCards[i].id !== gameCard.id) {
         HlCards[i].classList.remove('Active');
+        window.scroll(0, 0);
       }
     }
   }
@@ -56,7 +57,6 @@ HlGameList.addEventListener('click', (e) => {
 const video = document.querySelector('.video');
 function ShowGame(id) {
   const gameSelect = highlight_games[id];
-  console.log(gameSelect.tags.split(','));
   video.src = gameSelect.bg;
   gameShowcase.innerHTML = `
             <div class="tags">
@@ -107,4 +107,5 @@ menu.addEventListener('click', (e) => {
   navList.classList.toggle('active');
   menu.classList.toggle('open');
   document.body.classList.toggle('menu-expanded');
+  window.scroll(0, 0);
 });

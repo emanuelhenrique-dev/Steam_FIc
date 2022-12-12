@@ -16,6 +16,10 @@
   --nav-height: 10.4rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: rgb(18, 18, 20);
   color: var(--text-color);
@@ -35,7 +39,7 @@ body {
  height: 100%;
  z-index: -1;
  top: 0;
- right: center;
+ right: 0;
  text-align: center;
 }
 
@@ -44,8 +48,8 @@ body {
   top: 0;
   right: 0;
   width: 100%;
-  margin: auto;
   height: 100%;
+  margin: auto;
   object-fit: cover;
   z-index: -1;
 }
@@ -58,7 +62,6 @@ body {
   linear-gradient(to right, rgba(18, 18, 20,1), rgba(29, 29, 29, 0) 55%),
   linear-gradient(to top, rgba(18, 18, 20,1) , rgba(29, 29, 29, 0) 35%)
   /*url(../assets/img/bg-teste.png)*/;
-  z-index: 0;
 }
 
 /*content */
@@ -125,7 +128,6 @@ nav ul li .search-box:hover > .search-text {
   padding: 0 6px;
 }
 
-
 nav ul {
   display: flex;
   align-items: center;
@@ -136,7 +138,26 @@ nav ul {
 
 nav ul li {
   text-decoration-style: none;
+  position: relative;
 }
+
+nav ul li > a::after {
+  position: absolute;
+  content: '';
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.2s;
+}
+
+nav ul li > a:hover::after {
+  width: 100%;
+  height: 2px;
+  background: var(--secondary-color);
+}
+
 nav ul li i {
  padding-top: 0.8rem;
 }
@@ -391,6 +412,7 @@ p.tag {
 
 /*----------------------  Responsividade ---------------------------------- */
 
+/*------------------------------------------------------1900----------*/
 @media (max-width: 1900px) {
 
   nav {
@@ -426,7 +448,7 @@ p.tag {
     max-height: 285px;
   }
 }
-
+/*------------------------------------------------------1300----------*/
 @media (max-width: 1300px) {
 
   
@@ -472,17 +494,26 @@ p.tag {
     width: 100vw;
     min-height: 100vh;
     z-index: -1;
-    background-color: #181818;
     flex-direction: column;
     gap: 5rem;
     font-size: 2.2rem;
     transform: translateX(0);
     transition: transform 0.3s ease-in-out;
+    background: rgba(24, 24, 24, 0.6);
+    backdrop-filter: blur(9px);
   }
 
   nav ul li .search-text {
-    width: 26rem;
+    width: 20rem;
     padding: 0 6px;
+  } 
+
+  nav ul li .search-box:hover > .search-text {
+    width: 22rem;
+  }
+
+  nav ul li i {
+    padding: 0;
   }
 
   nav ul.active {
@@ -505,15 +536,17 @@ p.tag {
    
   }
 
-  /*botao do meu*/
+  /*botao do menu*/
   .mobile-menu.open .line1 {
-    transform: rotate(-45deg) translate(5px, 10px);
+    transform: rotate(-45deg) translate(3px, 8px);
   }
   .mobile-menu.open .line2 {
-    transform: rotate(45deg) translate(5px, -10px);
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
   }
   .mobile-menu.open .line3 {
-    opacity: 0;
+    transform: rotate(45deg) translate(-1px, -11px);
+    width: 24px;
   }
   
   /*Section home*/
@@ -603,7 +636,7 @@ p.tag {
     line-height: 1.5rem;
   }
 }
-
+/*---------------------------------------------------------600-------*/
 @media (max-width:600px) {
   nav ul {
     padding-top: calc(2.3rem + var(--nav-height));
@@ -617,6 +650,7 @@ p.tag {
   }
 }
 
+/*------------------------------------------------------only mobile----------*/
 @media (hover:none) {
   #home .highlights ul::-webkit-scrollbar {
     height: 0.3rem;
