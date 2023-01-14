@@ -26,6 +26,15 @@ body {
   scroll-behavior: smooth;
 }
 
+li {
+  list-style: none;
+}
+
+button {
+  background-color: var(--secondary-color);
+  border: none;
+}
+
 .api {
   max-width: 85vw;
   margin: auto;
@@ -406,6 +415,177 @@ p.tag {
 }
 
 
+/*----------------------  Section promotions ---------------------------------- */
+
+#promotions {
+  background-color: red;
+  background-image:
+  linear-gradient(to left,rgba(18, 18, 20,1), rgba(29, 29, 29, 0) 65%),
+  linear-gradient(to right, rgba(18, 18, 20,1), rgba(29, 29, 29, 0) 55%),
+  linear-gradient(to top, rgba(18, 18, 20,1) , rgba(29, 29, 29, 0) 35%),
+  linear-gradient(to bottom, rgba(18, 18, 20,1) , rgba(29, 29, 29, 0) 35%),
+  url(/assets/img/bg-promotion01.png);
+  background-size: cover;
+  width: 100%;
+  height: 1500px;
+}
+
+#promotions h2 {
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 5.4rem;
+}
+
+#promotions h2:after {
+  content: "";
+  background: var(--secondary-color);
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 2px;
+  width: 222.01px;
+}
+
+#promotions .promotion-band {
+  display: flex;
+  padding-top: 72px;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+}
+
+#promotions .promotion-band li {
+  width: 300px;
+  height: 440px;
+  position: relative;
+}
+
+#promotions .promotion-band li img {
+  width: 100%;
+  height: 100%;
+}
+
+
+#promotions .promotion-band li .preview{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: 0.5s;
+}
+
+#promotions .promotion-band li .preview:hover{
+  background: rgba(0, 0, 0, 0.627);
+}
+
+#promotions .promotion-band li .preview .video {
+  z-index: 1;
+  width: 0%;
+  height: 60%;
+  background-color: rgb(58, 193, 43);
+  background-size: cover;
+  background-position: center;
+  /*clip-path: ellipse(0% 0% at 100% 0%);*/
+  transition: 0.5s ease-in-out;
+  border: solid var(--secondary-color);
+  border-width: 0px;
+  border-bottom-left-radius: 180px;
+}
+
+#promotions .promotion-band li:hover .preview .video{
+  /*clip-path: ellipse(91% 43% at 72% 11%);*/
+  width: 100%;
+  border-width: 0px 0px 2px 2px;
+}
+
+#promotions .promotion-band li .preview .game-text {
+  padding-top: 90%;
+  padding-left: 4%;
+  opacity: 0;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#promotions .promotion-band li:hover .preview .game-text {
+  opacity: 1;
+}
+
+#promotions .promotion-band li .preview .price {
+  position: absolute;
+  background-color: var(--secondary-color);
+  color: #494949;
+  bottom: 4%;
+  right: 0;
+  width: 55%;
+  height: 40px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  border-radius: 15px 0 0 15px;
+}
+
+#promotions .promotion-band li .preview .price p:nth-child(2) {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--secondary-text-color);
+}
+
+#promotions .promotion-band li .preview .game-text h4 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+}
+
+#promotions .promotion-band li .preview .game-text p {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 125.19%;
+}
+
+#promotions .promotion-band li .preview .game-text div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#promotions .promotion-band li .preview .game-text div .stars {
+  font-size: 10px;
+  color: var(--secondary-color);
+  text-shadow: rgb(255 107 0) 0px 2px 12px;
+  height: 10px;
+}
+
+#promotions .promotion-band li .preview .game-text button {
+  width: 104px;
+  height: 35px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#promotions .promotion-band li .preview .game-text button:hover {
+  background-color: #ddc4a2;
+}
+
+
 
 
 
@@ -602,6 +782,7 @@ p.tag {
   /* highlights in Section home*/
   #home .highlights {
     padding-top: 5.6rem;
+    padding-bottom: 40rem;
   }
   
   #home .highlights h1 {
@@ -635,6 +816,7 @@ p.tag {
     font-weight: 600;
     line-height: 1.5rem;
   }
+
 }
 /*---------------------------------------------------------600-------*/
 @media (max-width:600px) {
@@ -648,6 +830,83 @@ p.tag {
   nav ul li .search-text {
     width: 22rem;
   }
+
+  /*----------------------  Section promotions ---------------------------------- */
+
+  #promotions {
+    height: auto;
+  }
+
+  #promotions h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+
+  #promotions h2:after {
+    width: 180.01px;
+  }
+
+  #promotions .promotion-band {
+    padding-top: 52px;
+    gap: 16px;
+    max-width: 800px;
+  }
+
+  #promotions .promotion-band li {
+    width: 200px;
+    height: 280px;
+  }
+
+  #promotions .promotion-band li .preview .video {
+    border-bottom-left-radius: 120px;
+  }
+
+  #promotions .promotion-band li .preview .price {
+    bottom: 4%;
+    right: 0;
+    width: 55%;
+    height: 26px;
+    gap: 2px;
+    font-size: 10px;
+    line-height: 16px;
+    border-radius: 15px 0 0 15px;
+  }
+  
+  #promotions .promotion-band li .preview .price p:nth-child(2) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  #promotions .promotion-band li .preview .game-text {
+    padding-top: 85%;
+  }
+  
+  #promotions .promotion-band li .preview .game-text h4 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  #promotions .promotion-band li .preview .game-text p {
+    font-size: 10px;
+    line-height: 100.19%;
+  }
+  
+  #promotions .promotion-band li .preview .game-text div {
+    gap: 4px;
+  }
+  
+  #promotions .promotion-band li .preview .game-text div .stars {
+    font-size: 6px;
+    height: 6px;
+  }
+  
+  #promotions .promotion-band li .preview .game-text button {
+    width: 80px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 6px;
+  } 
 }
 
 /*------------------------------------------------------only mobile----------*/
