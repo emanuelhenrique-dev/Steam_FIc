@@ -418,7 +418,6 @@ p.tag {
 /*----------------------  Section promotions ---------------------------------- */
 
 #promotions {
-  background-color: red;
   background-image:
   linear-gradient(to left,rgba(18, 18, 20,1), rgba(29, 29, 29, 0) 65%),
   linear-gradient(to right, rgba(18, 18, 20,1), rgba(29, 29, 29, 0) 55%),
