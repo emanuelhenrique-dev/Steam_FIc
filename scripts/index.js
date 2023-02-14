@@ -109,3 +109,158 @@ menu.addEventListener('click', (e) => {
   document.body.classList.toggle('menu-expanded');
   window.scroll(0, 0);
 });
+
+// --------------- section explorer --------------- //
+
+// option selection //
+
+const option = document.querySelector('#explorer .selectors .options');
+const options = document.querySelectorAll('#explorer .selectors .options p');
+
+// Deixar um selecionado //
+option.addEventListener('click', (e) => {
+  const o = e.target;
+  let number = 0;
+  if (o.tagName == 'P') {
+    options.forEach((item) => {
+      item.classList.remove('active');
+    });
+    o.classList.add('active');
+    option.classList.remove('expand');
+    if (o.classList.value.includes('category')) {
+      option.classList.add('expand');
+    }
+  }
+});
+
+// carousel categorias //
+
+var swiper = new Swiper('.mySwiper', {
+  slidesPerView: 4,
+  spaceBetween: 20,
+  slidesPerGroup: 4,
+  loop: false,
+
+  breakpoints: {
+    1900: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    1300: {
+      slidesPerView: 4,
+      spaceBetween: 6
+    },
+    600: {
+      slidesPerView: 2,
+      spaceBetween: 10
+    },
+    300: {
+      slidesPerView: 2,
+      spaceBetween: 12
+    }
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+});
+
+const explorerGames = document.querySelector('#explorer .explorer-games');
+
+// Criar cada card da lista de games no explorer //
+function createEXcardGame(card) {
+  const EXcard = document.createElement('li');
+
+  EXcard.innerHTML = `
+        <div class="description">
+        <div><h3>${card.name}</h3>
+        <p>Data: ${card.date}</p>
+        <p>${card.description}</p>
+        </div>  
+        <span class="stars">
+        Avaliacão:
+        ${createStars(card.stars)}
+        </span>
+        </div>
+        <p>${card.price}</p>
+        <div class="prev">
+        <img class="selected" src="${card.img1}" alt="">
+        <img src="${card.img2}" alt="">
+        <img src="${card.img3}" alt="">
+        </div>
+    `;
+  EXcard.style.backgroundImage = 'url("' + card.front + '")';
+  EXcard.id = card.id;
+  return EXcard;
+}
+
+// Colocar os cards explorer dos games no ul//
+function explorerListarGames(listaGames) {
+  for (let i = 0; i < listaGames.length; i++) {
+    const card = listaGames[i];
+
+    const cardMontado = createEXcardGame(card);
+
+    explorerGames.appendChild(cardMontado);
+  }
+}
+
+explorerListarGames(explorer_games);
+
+//---------- parte responsável pelo preview dos cards no explorer ----------//
+// colocar uma classe last no ultimo item de cada linha da lista explorer
+function last() {
+  const cards = document.querySelectorAll('#explorer .explorer-games li');
+  cards.forEach((element) => {
+    element.classList.remove('last');
+    var calc = element.getBoundingClientRect().right / window.innerWidth;
+    if (calc > 0.75) {
+      element.classList.add('last');
+    }
+  });
+}
+window.addEventListener('load', last);
+window.addEventListener('resize', last);
+
+// configuracao para a passagem das imagens na preview
+let time = 3000,
+  currentImageIndex = 0,
+  cards = document.querySelectorAll('.explorer-games li'),
+  max = 3;
+
+let myInterval = 0;
+
+function nextImage(images) {
+  myInterval = setInterval(() => {
+    images[currentImageIndex].classList.remove('selected');
+    currentImageIndex++;
+    if (currentImageIndex >= max) {
+      currentImageIndex = 0;
+    }
+    images[currentImageIndex].classList.add('selected');
+    //console.log('salto');
+  }, time);
+}
+
+function stopImage(images) {
+  clearInterval(myInterval);
+  images[currentImageIndex].classList.remove('selected');
+  images[0].classList.add('selected');
+  currentImageIndex = 0;
+}
+
+// interacao com hover para iniciar e parar a passagem das imagens
+for (let i = 0; i < cards.length; i++) {
+  cards[i].addEventListener('mouseover', (e) => {
+    const images = e.target.querySelectorAll('.prev img');
+    nextImage(images);
+  });
+  cards[i].addEventListener('mouseleave', (e) => {
+    const images = e.target.querySelectorAll('.prev img');
+    stopImage(images);
+  });
+}
